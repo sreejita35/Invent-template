@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invent - Innovative Solutions</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --primary: #5a4fcf;
+      --primary-light: #ede9ff;
+      --primary-hover: #4a3fbf;
+      --bg: #f0effe;
+      --text-dark: #1a1a2e;
+      --text-muted: #6b7280;
+      --white: #ffffff;
+      --card-bg: #f7f6ff;
+      --border-radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: var(--white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ───────────── NAVBAR ───────────── */
+    .navbar {
+      background-color: var(--white);
+      padding: 18px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-dark) !important;
+      letter-spacing: -0.5px;
+    }
+
+    .navbar-brand span {
+      color: var(--primary);
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--text-dark) !important;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 6px 14px !important;
+      transition: color 0.2s;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: var(--primary) !important;
+    }
+
+    .navbar-nav .nav-link.active {
+      font-weight: 700;
+    }
+
+    .btn-get-started {
+      background-color: var(--primary);
+      color: var(--white) !important;
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 10px 24px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-get-started:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .dropdown-menu {
+      border: none;
+      box-shadow: 0 8px 30px rgba(90,79,207,0.12);
+      border-radius: var(--border-radius);
+    }
+
+    /* ───────────── HERO SECTION ───────────── */
+    #home {
+      background-color: var(--bg);
+      padding: 80px 0 60px;
+      min-height: calc(100vh - 73px);
+      display: flex;
+      align-items: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--white);
+      color: var(--text-dark);
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      padding: 7px 16px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+
+    .badge-pill i {
+      color: var(--primary);
+      font-size: 1rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 36px;
+    }
+
+    .btn-discover {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 14px 32px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(90,79,207,0.3);
+    }
+
+    .btn-discover:hover {
+      background-color: var(--primary-hover);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(90,79,207,0.4);
+    }
+
+    
+    .hero-img-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .hero-illustration {
+      width: 100%;
+      max-width: 560px;
+    }
+
+    
+    .deco {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.55;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .deco-1 {
+      width: 120px; height: 120px;
+      background: #f5c6a0;
+      bottom: 60px; left: 20px;
+      animation-delay: 0s;
+    }
+
+    .deco-2 {
+      width: 90px; height: 90px;
+      background: #c9c0f5;
+      top: 30px; right: 30px;
+      animation-delay: 2s;
+    }
+
+    .deco-3 {
+      width: 60px; height: 60px;
+      background: #a8d8f0;
+      top: 80px; left: 60px;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    .plus-deco {
+      position: absolute;
+      color: var(--primary);
+      font-size: 1.4rem;
+      font-weight: 300;
+      opacity: 0.5;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .plus-1 { top: 20px; left: 150px; animation-delay: 0s; }
+    .plus-2 { bottom: 80px; right: 60px; animation-delay: 1s; }
+    .plus-3 { top: 100px; right: 110px; animation-delay: 2s; font-size: 1rem; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50%       { opacity: 0.7; transform: scale(1.2); }
+    }
+
+    
+    .hero-svg-scene {
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+    }
+
+    /* ───────────── FEATURE CARDS ───────────── */
+    #features {
+      background-color: var(--card-bg);
+      padding: 60px 0;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 32px 28px;
+      border: 1px solid rgba(90,79,207,0.08);
+      height: 100%;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 10px 40px rgba(90,79,207,0.12);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      width: 56px; height: 56px;
+      background: var(--primary-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+
+    .feature-icon i {
+      font-size: 1.3rem;
+      color: var(--primary);
+    }
+
+    .feature-card h5 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ───────────── WHO WE ARE ───────────── */
+    #about {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      letter-spacing: -0.3px;
+    }
+
+    .about-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .about-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .about-img {
+      border-radius: var(--border-radius);
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 991px) {
+      #home { padding: 60px 0 40px; min-height: auto; }
+      .hero-title { font-size: 2rem; }
+      .hero-img-wrap { margin-top: 40px; }
+      .about-images { margin-top: 36px; }
+    }
+
+    @media (max-width: 575px) {
+      .hero-title { font-size: 1.75rem; }
+      .about-img { height: 160px; }
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .section-heading .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      margin: 0 auto 18px;
+      border-radius: 4px;
+    }
+
+    .section-heading p {
+      color: var(--text-muted);
+      font-size: 0.97rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ───────────── SERVICES ───────────── */
+    #services {
+      padding: 90px 0;
+      background: var(--white);
+    }
+
+    .service-item {
+      display: flex;
+      gap: 28px;
+      padding: 40px 0;
+      border-bottom: 1px solid #f0f0f7;
+    }
+
+    .service-item:last-child { border-bottom: none; }
+
+    .service-icon-box {
+      width: 72px;
+      height: 72px;
+      background: var(--primary-light);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .service-item:hover .service-icon-box {
+      background: var(--primary);
+    }
+
+    .service-icon-box i {
+      font-size: 1.6rem;
+      color: var(--primary);
+      transition: color 0.2s;
+    }
+
+    .service-item:hover .service-icon-box i {
+      color: var(--white);
+    }
+
+    .service-body h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .service-body p {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .link-primary-arrow {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .link-primary-arrow:hover {
+      gap: 10px;
+      color: var(--primary-hover);
+    }
+
+    /* ───────────── PORTFOLIO ───────────── */
+    #portfolio {
+      padding: 90px 0;
+      background: var(--bg);
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 44px;
+    }
+
+    .filter-btn {
+      padding: 10px 24px;
+      border-radius: 8px;
+      border: none;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: var(--white);
+      color: var(--text-dark);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .portfolio-card {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .portfolio-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(90,79,207,0.75);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s;
+      color: var(--white);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .portfolio-card:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h5 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .portfolio-overlay span {
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 767px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-card img { height: 220px; }
+    }
+
+    /* ───────────── PRICING ───────────── */
+    #pricing {
+      padding: 90px 0;
+      background: var(--white);
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 40px 36px;
+      border: 1.5px solid transparent;
+      height: 100%;
+      transition: box-shadow 0.3s, transform 0.3s;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      box-shadow: 0 12px 40px rgba(90,79,207,0.12);
+      transform: translateY(-4px);
+    }
+
+    .pricing-card.popular {
+      background: var(--primary);
+      color: var(--white);
+      transform: scale(1.03);
+      box-shadow: 0 20px 60px rgba(90,79,207,0.35);
+    }
+
+    .pricing-card.popular:hover {
+      transform: scale(1.03) translateY(-4px);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 50px;
+      box-shadow: 0 4px 16px rgba(90,79,207,0.15);
+      white-space: nowrap;
+    }
+
+    .plan-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+
+    .pricing-card.popular .plan-name { color: var(--white); }
+
+    .plan-price {
+      display: flex;
+      align-items: flex-start;
+      gap: 2px;
+      margin-bottom: 16px;
+    }
+
+    .plan-price sup {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 10px;
+      color: var(--text-dark);
+    }
+
+    .plan-price .amount {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--text-dark);
+    }
+
+    .plan-price .period {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      align-self: flex-end;
+      margin-bottom: 6px;
+    }
+
+    .pricing-card.popular .plan-price sup,
+    .pricing-card.popular .plan-price .amount { color: var(--white); }
+    .pricing-card.popular .plan-price .period { color: rgba(255,255,255,0.75); }
+
+    .plan-desc {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .pricing-card.popular .plan-desc { color: rgba(255,255,255,0.85); }
+
+    .plan-features-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+    }
+
+    .pricing-card.popular .plan-features-title { color: var(--white); }
+
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+    }
+
+    .plan-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding: 6px 0;
+    }
+
+    .pricing-card.popular .plan-features li { color: rgba(255,255,255,0.9); }
+
+    .plan-features li i {
+      color: var(--primary);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .pricing-card.popular .plan-features li i { color: var(--white); }
+
+    .btn-plan {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 13px;
+      border-radius: var(--border-radius);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-plan:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .pricing-card.popular .btn-plan {
+      background: var(--white);
+      color: var(--primary);
+      border-color: var(--white);
+    }
+
+    .pricing-card.popular .btn-plan:hover {
+      background: rgba(255,255,255,0.9);
+    }
+
+    /* ───────────── TEAM ───────────── */
+    #team {
+      padding: 90px 0;
+      background: var(--bg);
+    }
+
+    .team-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      text-align: center;
+      transition: box-shadow 0.3s, transform 0.3s;
+      height: 100%;
+    }
+
+    .team-card:hover {
+      box-shadow: 0 12px 40px rgba(90,79,207,0.12);
+      transform: translateY(-5px);
+    }
+
+    .team-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .team-card-body {
+      padding: 20px 16px 28px;
+    }
+
+    .team-card-body h5 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .team-role-badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 50px;
+    }
+
+    /* ───────────── CONTACT ───────────── */
+    #contact {
+      padding: 90px 0;
+      background: var(--white);
+    }
+
+    .contact-info-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 40px 24px;
+      text-align: center;
+      border: 1px solid rgba(90,79,207,0.07);
+      height: 100%;
+      transition: box-shadow 0.25s;
+    }
+
+    .contact-info-card:hover {
+      box-shadow: 0 8px 30px rgba(90,79,207,0.1);
+    }
+
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+
+    .contact-icon i {
+      font-size: 1.3rem;
+      color: var(--primary);
+    }
+
+    .contact-info-card h5 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+
+    .contact-info-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Contact Form */
+    .contact-form-wrap {
+      margin-top: 56px;
+    }
+
+    .form-input-group {
+      position: relative;
+    }
+
+    .form-input-group .input-icon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--card-bg);
+      border: 1px solid #e5e5f0;
+      border-right: none;
+      border-radius: var(--border-radius) 0 0 var(--border-radius);
+      color: var(--primary);
+      font-size: 1rem;
+    }
+
+    .form-input-group input,
+    .form-input-group select,
+    .form-input-group textarea {
+      width: 100%;
+      border: 1px solid #e5e5f0;
+      border-radius: var(--border-radius);
+      padding: 14px 16px 14px 60px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .form-input-group input:focus,
+    .form-input-group select:focus,
+    .form-input-group textarea:focus {
+      border-color: var(--primary);
+    }
+
+    .form-input-group textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    .form-input-group.textarea-group .input-icon {
+      align-items: flex-start;
+      padding-top: 14px;
+      height: 100%;
+    }
+
+    .btn-submit {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 15px 48px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(90,79,207,0.3);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .btn-submit:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(90,79,207,0.4);
+    }
+
+    /* ───────────── FOOTER ───────────── */
+    #footer {
+      background: var(--white);
+      border-top: 1px solid #f0f0f7;
+      padding: 64px 0 0;
+    }
+
+    .footer-brand {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .footer-brand span { color: var(--primary); }
+
+    .footer-address {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin-bottom: 6px;
+    }
+
+    .footer-contact-line {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+
+    .footer-contact-line strong {
+      color: var(--text-dark);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid #e0e0ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .social-btn:hover {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    .footer-heading {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--primary); }
+
+    .footer-bottom {
+      margin-top: 48px;
+      border-top: 1px solid #f0f0f7;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ───────────── BACK TO TOP ───────────── */
+    #backToTop {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 46px;
+      height: 46px;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      box-shadow: 0 4px 16px rgba(90,79,207,0.35);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    #backToTop:hover { background: var(--primary-hover); transform: translateY(-2px); }
+    #backToTop.show { display: flex; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">Invent<span>.</span></a>
+
+    <button class="navbar-toggler border-0" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link active" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#portfolio">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#pricing">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#team">Team</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Dropdown</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Item One</a></li>
+            <li><a class="dropdown-item" href="#">Item Two</a></li>
+            <li><a class="dropdown-item" href="#">Item Three</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+
+      <a href="#" class="btn btn-get-started ms-lg-3">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section id="home">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+
+      <!-- Left Content -->
+      <div class="col-lg-6">
+        <div class="badge-pill">
+          <i class="bi bi-bell"></i>
+          Innovative Solutions
+        </div>
+
+        <h1 class="hero-title">
+          Accelerating business growth through innovative technology
+        </h1>
+
+        <p class="hero-desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius
+          tortor nibh, sit amet tempor nibh finibus et. Aenean eu enim justo.
+        </p>
+
+        <a href="#" class="btn-discover">Discover More</a>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="hero-img-wrap">
+          <div class="deco deco-1"></div>
+          <div class="deco deco-2"></div>
+          <div class="deco deco-3"></div>
+
+         
+          <span class="plus-deco plus-1">+</span>
+          <span class="plus-deco plus-2">✳</span>
+          <span class="plus-deco plus-3">+</span>
+
+          
+          <svg class="hero-svg-scene" viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+           
+            <line x1="60" y1="390" x2="500" y2="390" stroke="#e0dff8" stroke-width="2"/>
+
+            
+            <rect x="180" y="60" width="220" height="200" rx="12" fill="#ffffff" stroke="#e0dff8" stroke-width="1.5"/>
+            
+            <rect x="210" y="180" width="28" height="60" rx="4" fill="#b0c4ff"/>
+            <rect x="250" y="155" width="28" height="85" rx="4" fill="#7c6cf5"/>
+            <rect x="290" y="130" width="28" height="110" rx="4" fill="#5a4fcf"/>
+            <rect x="330" y="110" width="28" height="130" rx="4" fill="#3730a3"/>
+            
+            <polyline points="224,175 264,148 304,122 344,100" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round"/>
+            
+            <polygon points="344,92 352,108 336,108" fill="#f97316"/>
+            
+            <circle cx="295" cy="88" r="22" fill="#fff" stroke="#e0dff8" stroke-width="1.5"/>
+            <text x="295" y="93" text-anchor="middle" font-size="18" fill="#7c6cf5">⚙</text>
+
+            <rect x="148" y="130" width="32" height="40" rx="4" fill="#fff" stroke="#e0dff8" stroke-width="1.5"/>
+            <line x1="155" y1="142" x2="173" y2="142" stroke="#ccc" stroke-width="1.5"/>
+            <line x1="155" y1="150" x2="173" y2="150" stroke="#ccc" stroke-width="1.5"/>
+            <line x1="155" y1="158" x2="165" y2="158" stroke="#ccc" stroke-width="1.5"/>
+
+            
+            <circle cx="155" cy="200" r="22" fill="#f5c6a0"/>
+            
+            <ellipse cx="155" cy="188" rx="22" ry="14" fill="#2d2350"/>
+            
+            <rect x="128" y="222" width="54" height="80" rx="10" fill="#e05c5c"/>
+            
+            <rect x="135" y="298" width="16" height="55" rx="6" fill="#2d3a5c"/>
+            <rect x="155" y="298" width="16" height="55" rx="6" fill="#2d3a5c"/>
+            
+            <ellipse cx="143" cy="353" rx="12" ry="6" fill="#1a1a2e"/>
+            <ellipse cx="163" cy="353" rx="12" ry="6" fill="#1a1a2e"/>
+            
+            <line x1="182" y1="248" x2="210" y2="230" stroke="#e05c5c" stroke-width="12" stroke-linecap="round"/>
+
+           
+            <circle cx="390" cy="195" r="22" fill="#f5c6a0"/>
+           
+            <ellipse cx="390" cy="183" rx="22" ry="12" fill="#2d2350"/>
+            
+            <rect x="363" y="217" width="54" height="80" rx="10" fill="#3b5ee8"/>
+           
+            <rect x="382" y="217" width="16" height="40" rx="3" fill="#fff" opacity="0.3"/>
+            
+            <rect x="370" y="293" width="16" height="60" rx="6" fill="#2d3a5c"/>
+            <rect x="390" y="293" width="16" height="60" rx="6" fill="#2d3a5c"/>
+            
+            <ellipse cx="378" cy="353" rx="14" ry="6" fill="#1a1a2e"/>
+            <ellipse cx="398" cy="353" rx="14" ry="6" fill="#1a1a2e"/>
+           
+            <rect x="340" y="230" width="28" height="36" rx="5" fill="#fff" stroke="#e0dff8" stroke-width="1.5"/>
+            <rect x="344" y="234" width="20" height="22" rx="2" fill="#b0c4ff" opacity="0.6"/>
+            
+            <line x1="363" y1="245" x2="340" y2="230" stroke="#3b5ee8" stroke-width="12" stroke-linecap="round"/>
+
+            
+            <ellipse cx="100" cy="370" rx="30" ry="14" fill="#b8e4c9" transform="rotate(-30 100 370)"/>
+            <ellipse cx="88" cy="355" rx="22" ry="10" fill="#8dd3aa" transform="rotate(-50 88 355)"/>
+            <ellipse cx="450" cy="370" rx="28" ry="12" fill="#b0c4e0" transform="rotate(25 450 370)"/>
+            <ellipse cx="465" cy="355" rx="20" ry="9" fill="#8baed0" transform="rotate(45 465 355)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ FEATURE CARDS ═══════════════════ -->
+<section id="features">
+  <div class="container">
+    <div class="row g-4">
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card d-flex gap-4">
+          <div class="feature-icon">
+            <i class="bi bi-gear-fill"></i>
+          </div>
+          <div>
+            <h5>Rapid Deployment</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card d-flex gap-4">
+          <div class="feature-icon">
+            <i class="bi bi-display"></i>
+          </div>
+          <div>
+            <h5>Advanced Security</h5>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card d-flex gap-4">
+          <div class="feature-icon">
+            <i class="bi bi-headset"></i>
+          </div>
+          <div>
+            <h5>Dedicated Support</h5>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ WHO WE ARE ═══════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+
+      <!-- Text -->
+      <div class="col-lg-6">
+        <p class="section-label">Who We Are</p>
+        <h2 class="section-title">Unleashing Potential with Creative Strategy</h2>
+        <p class="about-desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh,
+          sit amet tempor nibh finibus et. Aenean eu enim justo. Vestibulum aliquam hendrerit molestie.
+        </p>
+        <a href="#" class="btn-discover">Learn More</a>
+      </div>
+
+      
+      <div class="col-lg-6">
+        <div class="about-images">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&auto=format&fit=crop"
+            alt="Team working" class="about-img"/>
+          <img
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&auto=format&fit=crop"
+            alt="Office meeting" class="about-img"/>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ SERVICES ═══════════════════ -->
+<section id="services">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Services</h2>
+      <div class="divider"></div>
+      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    </div>
+
+    <div class="row g-0">
+      <div class="col-lg-6">
+        <div class="service-item">
+          <div class="service-icon-box">
+            <i class="bi bi-code-slash"></i>
+          </div>
+          <div class="service-body">
+            <h4>Custom Web Development</h4>
+            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="link-primary-arrow">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon-box">
+            <i class="bi bi-bar-chart-line"></i>
+          </div>
+          <div class="service-body">
+            <h4>Digital Marketing</h4>
+            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla quis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="link-primary-arrow">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="service-item">
+          <div class="service-icon-box">
+            <i class="bi bi-phone"></i>
+          </div>
+          <div class="service-body">
+            <h4>Mobile App Solutions</h4>
+            <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vivamus magna justo, lacinia eget consectetur sed. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum congue leo eget malesuada.</p>
+            <a href="#" class="link-primary-arrow">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon-box">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <div class="service-body">
+            <h4>Cybersecurity Consulting</h4>
+            <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vivamus magna justo, lacinia eget consectetur sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#" class="link-primary-arrow">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ PORTFOLIO ═══════════════════ -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Portfolio</h2>
+      <div class="divider"></div>
+      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="web">Web Design</button>
+      <button class="filter-btn" data-filter="graphics">Graphics</button>
+      <button class="filter-btn" data-filter="motion">Motion</button>
+      <button class="filter-btn" data-filter="branding">Branding</button>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-card" data-cat="web">
+        <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&auto=format&fit=crop" alt="Project 1"/>
+        <div class="portfolio-overlay">
+          <h5>Beauty Product</h5>
+          <span>Web Design</span>
+        </div>
+      </div>
+      <div class="portfolio-card" data-cat="branding">
+        <img src="https://images.unsplash.com/photo-1490750967868-88df5691cc80?w=600&auto=format&fit=crop" alt="Project 2"/>
+        <div class="portfolio-overlay">
+          <h5>Floral Branding</h5>
+          <span>Branding</span>
+        </div>
+      </div>
+      <div class="portfolio-card" data-cat="graphics">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&auto=format&fit=crop" alt="Project 3"/>
+        <div class="portfolio-overlay">
+          <h5>Office Interior</h5>
+          <span>Graphics</span>
+        </div>
+      </div>
+      <div class="portfolio-card" data-cat="motion">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&auto=format&fit=crop" alt="Project 4"/>
+        <div class="portfolio-overlay">
+          <h5>Tech Platform</h5>
+          <span>Motion</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ PRICING ═══════════════════ -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Pricing</h2>
+      <div class="divider"></div>
+      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    </div>
+
+    <div class="row g-4 align-items-center justify-content-center">
+
+      <!-- Basic -->
+      <div class="col-lg-4 col-md-6">
+        <div class="pricing-card">
+          <p class="plan-name">Basic Plan</p>
+          <div class="plan-price">
+            <sup>$</sup>
+            <span class="amount">9.9</span>
+            <span class="period">/ month</span>
+          </div>
+          <p class="plan-desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam.</p>
+          <p class="plan-features-title">Featured Included:</p>
+          <ul class="plan-features">
+            <li><i class="bi bi-check-circle-fill"></i> 5 Projects</li>
+            <li><i class="bi bi-check-circle-fill"></i> 10 GB Storage</li>
+            <li><i class="bi bi-check-circle-fill"></i> Basic Analytics</li>
+            <li><i class="bi bi-check-circle-fill"></i> Email Support</li>
+          </ul>
+          <a href="#" class="btn-plan">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Standard (Popular) -->
+      <div class="col-lg-4 col-md-6">
+        <div class="pricing-card popular">
+          <div class="popular-badge">Most Popular</div>
+          <p class="plan-name">Standard Plan</p>
+          <div class="plan-price">
+            <sup>$</sup>
+            <span class="amount">19.9</span>
+            <span class="period">/ month</span>
+          </div>
+          <p class="plan-desc">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
+          <p class="plan-features-title">Featured Included:</p>
+          <ul class="plan-features">
+            <li><i class="bi bi-check-circle-fill"></i> 20 Projects</li>
+            <li><i class="bi bi-check-circle-fill"></i> 50 GB Storage</li>
+            <li><i class="bi bi-check-circle-fill"></i> Advanced Analytics</li>
+            <li><i class="bi bi-check-circle-fill"></i> Priority Support</li>
+            <li><i class="bi bi-check-circle-fill"></i> Custom Domain</li>
+          </ul>
+          <a href="#" class="btn-plan">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Premium -->
+      <div class="col-lg-4 col-md-6">
+        <div class="pricing-card">
+          <p class="plan-name">Premium Plan</p>
+          <div class="plan-price">
+            <sup>$</sup>
+            <span class="amount">39.9</span>
+            <span class="period">/ month</span>
+          </div>
+          <p class="plan-desc">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae.</p>
+          <p class="plan-features-title">Featured Included:</p>
+          <ul class="plan-features">
+            <li><i class="bi bi-check-circle-fill"></i> Unlimited Projects</li>
+            <li><i class="bi bi-check-circle-fill"></i> 200 GB Storage</li>
+            <li><i class="bi bi-check-circle-fill"></i> Full Analytics Suite</li>
+            <li><i class="bi bi-check-circle-fill"></i> 24/7 Dedicated Support</li>
+            <li><i class="bi bi-check-circle-fill"></i> White Label</li>
+          </ul>
+          <a href="#" class="btn-plan">Get Started</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ TEAM ═══════════════════ -->
+<section id="team">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Team</h2>
+      <div class="divider"></div>
+      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80" alt="Daniel Mitchell"/>
+          <div class="team-card-body">
+            <h5>Daniel Mitchell</h5>
+            <span class="team-role-badge">Creative Director</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&auto=format&fit=crop&q=80" alt="Rebecca Taylor"/>
+          <div class="team-card-body">
+            <h5>Rebecca Taylor</h5>
+            <span class="team-role-badge">Lead Developer</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&auto=format&fit=crop&q=80" alt="Marcus Johnson"/>
+          <div class="team-card-body">
+            <h5>Marcus Johnson</h5>
+            <span class="team-role-badge">UI/UX Designer</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80" alt="Jessica Parker"/>
+          <div class="team-card-body">
+            <h5>Jessica Parker</h5>
+            <span class="team-role-badge">Marketing Strategist</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Contact</h2>
+      <div class="divider"></div>
+      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="contact-info-card">
+          <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
+          <h5>Our Address</h5>
+          <p>2847 Rainbow Road, Springfield, IL 62701, USA</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="contact-info-card">
+          <div class="contact-icon"><i class="bi bi-telephone"></i></div>
+          <h5>Contact Number</h5>
+          <p>Mobile: +1 (555) 123-4567<br/>Email: info@example.com</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="contact-info-card">
+          <div class="contact-icon"><i class="bi bi-clock"></i></div>
+          <h5>Opening Hour</h5>
+          <p>Monday - Saturday: 9:00 - 18:00<br/>Sunday: Closed</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form-wrap">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="form-input-group">
+            <span class="input-icon"><i class="bi bi-person"></i></span>
+            <input type="text" placeholder="Your name*"/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-input-group">
+            <span class="input-icon"><i class="bi bi-envelope"></i></span>
+            <input type="email" placeholder="Email address*"/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-input-group">
+            <span class="input-icon"><i class="bi bi-phone"></i></span>
+            <input type="tel" placeholder="Phone number*"/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-input-group">
+            <span class="input-icon"><i class="bi bi-list"></i></span>
+            <select>
+              <option value="" disabled selected>Select service*</option>
+              <option>Web Development</option>
+              <option>Mobile App</option>
+              <option>Digital Marketing</option>
+              <option>Cybersecurity</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-input-group textarea-group">
+            <span class="input-icon"><i class="bi bi-chat-dots"></i></span>
+            <textarea placeholder="Write a message*"></textarea>
+          </div>
+        </div>
+        <div class="col-12 text-center">
+          <button class="btn-submit">Submit Message</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Brand col -->
+      <div class="col-lg-4 col-md-6">
+        <span class="footer-brand">MyWebsite</span>
+        <p class="footer-address">A108 Adam Street<br/>New York, NY 535022</p>
+        <p class="footer-contact-line"><strong>Phone:</strong> +1 5588 55488 55</p>
+        <p class="footer-contact-line"><strong>Email:</strong> info@example.com</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Useful Links -->
+      <div class="col-lg-2 col-md-3 col-6">
+        <p class="footer-heading">Useful Links</p>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#">Terms of service</a></li>
+          <li><a href="#">Privacy policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Our Services -->
+      <div class="col-lg-2 col-md-3 col-6">
+        <p class="footer-heading">Our Services</p>
+        <ul class="footer-links">
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Product Management</a></li>
+          <li><a href="#">Marketing</a></li>
+          <li><a href="#">Graphic Design</a></li>
+        </ul>
+      </div>
+
+      <!-- Two mini link cols -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <p class="footer-heading">Hic solutasetp</p>
+        <ul class="footer-links">
+          <li><a href="#">Molestiae accusamus iure</a></li>
+          <li><a href="#">Excepturi dignissimos</a></li>
+          <li><a href="#">Suscipit distinctio</a></li>
+          <li><a href="#">Dilecta</a></li>
+          <li><a href="#">Sit quas consectetur</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6 col-6">
+        <p class="footer-heading">Nobis illum</p>
+        <ul class="footer-links">
+          <li><a href="#">Ipsam</a></li>
+          <li><a href="#">Laudantium dolorum</a></li>
+          <li><a href="#">Dinera</a></li>
+          <li><a href="#">Trodelas</a></li>
+          <li><a href="#">Flexo</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; Copyright <strong>MyWebsite</strong> &nbsp; All Rights Reserved<br/>
+    Designed by <a href="#">BootstrapMade</a></p>
+  </div>
+</footer>
+
+
+<!-- Back to top button -->
+<button id="backToTop" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+    });
+
+    // Back to top
+    const btn = document.getElementById('backToTop');
+    btn.classList.toggle('show', window.scrollY > 400);
+  });
+
+  // Back to top click
+  document.getElementById('backToTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Portfolio filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      portfolioCards.forEach(card => {
+        if (filter === 'all' || card.dataset.cat === filter) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
